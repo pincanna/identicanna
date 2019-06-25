@@ -1,3 +1,3 @@
 web: bundle exec rails server
-worker: bundle exec sidekiq
+worker: bundle exec sidekiq -q active_storage_analysis
 webpack: bundle exec bin/webpack-dev-server

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_id: MyString
+  event_type: MyString
+  event_date: 2019-06-25 12:06:14
+  uuid: MyString
+  event_id: MyString
+  body: 
+
+two:
+  reference_id: MyString
+  event_type: MyString
+  event_date: 2019-06-25 12:06:14
+  uuid: MyString
+  event_id: MyString
+  body: 

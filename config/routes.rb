@@ -1,8 +1,14 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  post '/webhook', to: 'addresses#webhook'
+  resources :addresses do
+    get 'pdf', on: :member
+    post 'verify', on: :collection
+  end
   namespace :admin do
       resources :users
+      resources :addresses, except: [:edit]
 
       root to: "users#index"
     end

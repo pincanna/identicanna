@@ -1,0 +1,32 @@
+h1 New Address Verification
+p.lead Fill out this form to send an address verification letter & code.
+
+= form_with model: @address, url: addresses_path, local: true do |f|
+	.form-group
+		= f.label :first_name
+		= f.text_field :first_name, class: 'form-control', autofocus: true
+	.form-group
+		= f.label :last_name
+		= f.text_field :last_name, class: 'form-control'
+	.form-group
+		= f.label :line1, 'Address Line 1'
+		= f.text_field :line1, class: 'form-control'
+	.form-group
+		= f.label :line2, 'Address Line 2'
+		= f.text_field :line2, class: 'form-control'
+	.row
+		.col-md-4
+			.form-group
+				= f.label :city
+				= f.text_field :city, class: 'form-control'
+		.col-md-4
+			.form-group
+				= f.label :state
+				= f.text_field :state, class: 'form-control'
+		.col-md-4
+			.form-group
+				= f.label :zip, 'ZIP Code'
+				= f.text_field :zip, class: 'form-control'
+	= f.submit 'Create New Address', class: 'btn btn-primary'
+
+				

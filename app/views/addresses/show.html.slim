@@ -1,0 +1,38 @@
+h1 Address Letter
+.row
+	.col-md-4
+		.actions
+			
+			- if @address.verification_letter.attached?
+				= link_to 'View Letter', rails_blob_url(@address.verification_letter), class: 'btn btn-primary', target: '_blank'
+				br
+				= image_tag @address.verification_letter.preview(resize_to_limit: [300, 300])
+			- else
+				p.lead PDF Processing...
+	.col-md-8
+		table.table.table-sm
+			tbody
+				tr
+					th Recipient
+					td 
+						= raw"#{@address.first_name} #{@address.last_name} <br/>#{@address.letter['to']['address_line1']} <br/> #{@address.letter['to']['address_line2']} <br/> #{@address.letter['to']['address_city']}, #{@address.letter['to']['address_state']} #{@address.letter['to']['address_zip']}"
+				tr
+					th Verification Code
+					td = @address.verification_code
+				tr
+					th Expected Delivery
+					td = @address.letter['expected_delivery_date']
+
+hr
+
+h1 Events
+table.table.table-sm.table-bordered.table-striped.table-hover
+	thead
+		tr
+			th Type
+			th Date
+	tbody
+		- @events.each do |event|
+			tr
+				td = event.event_type
+				td = event.event_date
